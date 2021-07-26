@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0F4B185-D3C7-4AC6-915C-9ACA37E57147}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CrudIzibidu.Bruxo</RootNamespace>
+    <AssemblyName>CrudIzibidu.Bruxo</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iconfinder_2913121_destruction_destructive magic_fantasy_fire_rpg_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CNPJ, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f50de5dcda738049, processorArchitecture=MSIL">
+      <HintPath>..\packages\Consulta_CNPJ.1.0.1\lib\CNPJ.dll</HintPath>
+    </Reference>
+    <Reference Include="Consulta.CNPJ, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Consulta.CNPJ.1.0.1\lib\netstandard2.0\Consulta.CNPJ.dll</HintPath>
+    </Reference>
+    <Reference Include="Correios.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Correios.CEP.Net.1.1.6\lib\Correios.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auxiliares\Auxi.cs" />
+    <Compile Include="data\data_classe\Categoriaa.cs" />
+    <Compile Include="data\data_classe\Cidade.cs" />
+    <Compile Include="data\data_classe\DataClasses1.cs">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="data\data_classe\DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="data\data_classe\Fornecedorr.cs" />
+    <Compile Include="data\data_classe\List.cs" />
+    <Compile Include="data\data_classe\Marcaa.cs" />
+    <Compile Include="data\data_classe\Produtoo.cs" />
+    <Compile Include="data\data_classe\Unidadee.cs" />
+    <Compile Include="data\data_set\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Categoria\Cadastro_Categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Categoria\Cadastro_Categoria.Designer.cs">
+      <DependentUpon>Cadastro_Categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Categoria\Formulario_Inicial_Categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Categoria\Formulario_Inicial_Categoria.Designer.cs">
+      <DependentUpon>Formulario_Inicial_Categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Categoria\Pesquisa_Categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Categoria\Pesquisa_Categoria.Designer.cs">
+      <DependentUpon>Pesquisa_Categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Fornecedor\Cadastro_Fornecedor_Inicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Fornecedor\Cadastro_Fornecedor_Inicial.Designer.cs">
+      <DependentUpon>Cadastro_Fornecedor_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Fornecedor\Pesquisa_Fornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Fornecedor\Pesquisa_Fornecedor.Designer.cs">
+      <DependentUpon>Pesquisa_Fornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Marca\Cadastro_Marca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Marca\Cadastro_Marca.Designer.cs">
+      <DependentUpon>Cadastro_Marca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Marca\Pesquisa_Marca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Marca\Pesquisa_Marca.Designer.cs">
+      <DependentUpon>Pesquisa_Marca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Marca\Formulario_Inicial_Marca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Marca\Formulario_Inicial_Marca.Designer.cs">
+      <DependentUpon>Formulario_Inicial_Marca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Produtos\Cadastro_Inicial_Produtos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Produtos\Cadastro_Inicial_Produtos.Designer.cs">
+      <DependentUpon>Cadastro_Inicial_Produtos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Produtos\Pesquisar_Produtos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Produtos\Pesquisar_Produtos.Designer.cs">
+      <DependentUpon>Pesquisar_Produtos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Unidade\Cadastro_Unidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Unidade\Cadastro_Unidade.Designer.cs">
+      <DependentUpon>Cadastro_Unidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Unidade\Formulario_Inicial_Unidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Unidade\Formulario_Inicial_Unidade.Designer.cs">
+      <DependentUpon>Formulario_Inicial_Unidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Unidade\Pesquisa_Unidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cadastros\Unidade\Pesquisa_Unidade.Designer.cs">
+      <DependentUpon>Pesquisa_Unidade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Formulario_Inicial_Aplicacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Formulario_Inicial_Aplicacao.Designer.cs">
+      <DependentUpon>Formulario_Inicial_Aplicacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Auxiliares\Gravado_com_sucesso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Auxiliares\Gravado_com_sucesso.Designer.cs">
+      <DependentUpon>Gravado_com_sucesso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Cadastros\Categoria\Cadastro_Categoria.resx">
+      <DependentUpon>Cadastro_Categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Categoria\Formulario_Inicial_Categoria.resx">
+      <DependentUpon>Formulario_Inicial_Categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Categoria\Pesquisa_Categoria.resx">
+      <DependentUpon>Pesquisa_Categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Fornecedor\Cadastro_Fornecedor_Inicial.resx">
+      <DependentUpon>Cadastro_Fornecedor_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Fornecedor\Pesquisa_Fornecedor.resx">
+      <DependentUpon>Pesquisa_Fornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Marca\Cadastro_Marca.resx">
+      <DependentUpon>Cadastro_Marca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Marca\Pesquisa_Marca.resx">
+      <DependentUpon>Pesquisa_Marca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Marca\Formulario_Inicial_Marca.resx">
+      <DependentUpon>Formulario_Inicial_Marca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Produtos\Cadastro_Inicial_Produtos.resx">
+      <DependentUpon>Cadastro_Inicial_Produtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Produtos\Pesquisar_Produtos.resx">
+      <DependentUpon>Pesquisar_Produtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Unidade\Cadastro_Unidade.resx">
+      <DependentUpon>Cadastro_Unidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Unidade\Formulario_Inicial_Unidade.resx">
+      <DependentUpon>Formulario_Inicial_Unidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cadastros\Unidade\Pesquisa_Unidade.resx">
+      <DependentUpon>Pesquisa_Unidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Formulario_Inicial_Aplicacao.resx">
+      <DependentUpon>Formulario_Inicial_Aplicacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Auxiliares\Gravado_com_sucesso.resx">
+      <DependentUpon>Gravado_com_sucesso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="CNPJ.tlb" />
+    <None Include="data\data_classe\DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="data\data_classe\DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+    <None Include="data\data_set\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="data\data_set\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="data\data_set\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brand.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iconfinder_2913121_destruction_destructive magic_fantasy_fire_rpg_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

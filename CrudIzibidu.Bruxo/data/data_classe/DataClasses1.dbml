@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="bruxo_crud" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-D08E92P\BRUXO;Initial Catalog=bruxo_crud;Persist Security Info=True;User ID=sa" SettingsObjectName="CrudIzibidu.Bruxo.Properties.Settings" SettingsPropertyName="bruxo_crudConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.brand" Member="brand">
+    <Type Name="brand">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name_brand" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="desativado" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="brand_produto" Member="produto" ThisKey="id" OtherKey="id_brand" Type="produto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.unit" Member="unit">
+    <Type Name="unit">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name_unit" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="desativado" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
+      <Association Name="unit_produto" Member="produto" ThisKey="id" OtherKey="id_unit" Type="produto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.category" Member="category">
+    <Type Name="category">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name_categoria" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="desativado" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="category_produto" Member="produto" ThisKey="id" OtherKey="id_category" Type="produto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.city" Member="city">
+    <Type Name="city">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="city_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="state_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="city_supplier" Member="supplier" ThisKey="id" OtherKey="city_id" Type="supplier" />
+      <Association Name="state_supplier_city" Member="state_supplier" ThisKey="state_id" OtherKey="id" Type="state_supplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.state_supplier" Member="state_supplier">
+    <Type Name="state_supplier">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="state_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="state_supplier_city" Member="city" ThisKey="id" OtherKey="state_id" Type="city" />
+    </Type>
+  </Table>
+  <Table Name="dbo.type_contact" Member="type_contact">
+    <Type Name="type_contact">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name_type_contact" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="type_contact_contact" Member="contact" ThisKey="id" OtherKey="type_contact_id" Type="contact" />
+    </Type>
+  </Table>
+  <Table Name="dbo.contact" Member="contact">
+    <Type Name="contact">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="supplier_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name_contact" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="observation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="type_contact_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="type_contact_contact" Member="type_contact" ThisKey="type_contact_id" OtherKey="id" Type="type_contact" IsForeignKey="true" />
+      <Association Name="supplier_contact" Member="supplier" ThisKey="supplier_id" OtherKey="id" Type="supplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.supplier" Member="supplier">
+    <Type Name="supplier">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="register_data" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="city_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name_supplier" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cpf" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ie" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="surname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cep" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="adress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="adress_number" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="adress_district" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="adress_complement" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="activated" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="custumer" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="obs" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Association Name="supplier_contact" Member="contact" ThisKey="id" OtherKey="supplier_id" Type="contact" />
+      <Association Name="supplier_produto" Member="produto" ThisKey="id" OtherKey="id_supplier" Type="produto" />
+      <Association Name="city_supplier" Member="city" ThisKey="city_id" OtherKey="id" Type="city" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.produto" Member="produto">
+    <Type Name="produto">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nome_produto" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_barras" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="estoque_produto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="preco_custo_produto" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="preco_venda_produto" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="id_supplier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_brand" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_unit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_category" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="data_registro" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ativado" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="brand_produto" Member="brand" ThisKey="id_brand" OtherKey="id" Type="brand" IsForeignKey="true" />
+      <Association Name="category_produto" Member="category" ThisKey="id_category" OtherKey="id" Type="category" IsForeignKey="true" />
+      <Association Name="supplier_produto" Member="supplier" ThisKey="id_supplier" OtherKey="id" Type="supplier" IsForeignKey="true" />
+      <Association Name="unit_produto" Member="unit" ThisKey="id_unit" OtherKey="id" Type="unit" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
